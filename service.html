@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>UNIQUE SURFACE TREATMENT</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            margin: 0;
+            padding: 0 15px;
+            width: 100%;
+        }
+
+        .container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .image-slider {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .image-slider img {
+            width: 100vw;
+            height: auto;
+        }
+
+        .filter-buttons {
+            padding-top: 10%;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .filter-buttons button.active {
+            background-color: darkred;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            display: none;
+            width: calc(33% - 10px);
+            max-width: 300px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 120%;
+            height: 120%;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                width: calc(100% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-3 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="img/logo.png" alt="UST Logo" class="logo" style="height: 50px;">
+            <h1 class="m-0 ms-2" style="color: crimson;">UST</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link active" style="color: crimson;">Home</a>
+                <a href="about.html" class="nav-item nav-link" style="color: crimson;">About</a>
+                <a href="service.html" class="nav-item nav-link" style="color: crimson;">Gallery</a>
+                <a href="contact.html" class="nav-item nav-link" style="color: crimson;">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filter Section -->
+    <div class="filter-buttons">
+        <button class="active" onclick="filterSelection('all')">Show All</button>
+        <button onclick="filterSelection('nature')">Nature</button>
+        <button onclick="filterSelection('architecture')">Architecture</button>
+        <button onclick="filterSelection('people')">People</button>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery-item nature"><img src="https://images.pexels.com/photos/1559117/pexels-photo-1559117.jpeg" alt="Nature"></div>
+        <div class="gallery-item architecture"><img src="https://images.pexels.com/photos/688660/pexels-photo-688660.jpeg" alt="Architecture"></div>
+        <div class="gallery-item people"><img src="https://images.pexels.com/photos/730256/pexels-photo-730256.jpeg" alt="People"></div>
+        <div class="gallery-item nature"><img src="https://images.pexels.com/photos/22427/pexels-photo.jpg" alt="Nature"></div>
+        <div class="gallery-item architecture"><img src="https://images.pexels.com/photos/789380/pexels-photo-789380.jpeg" alt="Architecture"></div>
+        <div class="gallery-item people"><img src="https://images.pexels.com/photos/355411/pexels-photo-355411.jpeg" alt="People"></div>
+    </div>
+</div>
+
+<!-- JavaScript for Filtering -->
+<script>
+    function filterSelection(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        document.querySelectorAll('.filter-buttons button').forEach(button => button.classList.remove('active'));
+        document.querySelector(`button[onclick="filterSelection('${category}')"]`).classList.add('active');
+
+        if (category === 'all') {
+            items.forEach(item => item.style.display = 'block');
+        } else {
+            items.forEach(item => {
+                item.style.display = item.classList.contains(category) ? 'block' : 'none';
+            });
+        }
+    }
+
+    // Initial filter
+    filterSelection('all');
+</script>
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-4 col-md-6 footer-about">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
+                    <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+                        <img src="/img/logo-white.jpg" alt="UST Logo" class="logo" style="height: 50px; border-radius: 10px;">
+<!-- Adjust height as needed -->
+                       <h1 class="m-0 ms-2">UST</h1>
+                    </a>
+                    <p class="mt-3 mb-4"> UST focuses on Quality, Cost and on time delivery of plated components besides responding to newer requirements emerging from time to time by the end user MNCs.
+                    </p>    
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="row gx-5">
+                    <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="text-light mb-0">Get In Touch</h3>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            <p class="mb-0">Plot C2/6,Backside of Simens Bus Stop,Ambad,Nashik</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-envelope-open text-primary me-2"></i>
+                            <p class="mb-0">uniquesurfacetreatment@gmail.com</p>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="bi bi-telephone text-primary me-2"></i>
+                            <p class="mb-0">+91 72760072920</p>
+                        </div>
+                        <div class="d-flex mt-4">
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                            <a class="btn btn-primary btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                        <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                            <h3 class="text-light mb-0">Quick Links</h3>
+                        </div>
+                        <div class="link-animated d-flex flex-column justify-content-start">
+                            <a class="text-light mb-2" href="/index.html"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                            <a class="text-light mb-2" href="/about.html"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                            <a class="text-light mb-2" href="/service.html"><i class="bi bi-arrow-right text-primary me-2"></i>Gallery</a>
+                            <a class="text-light mb-2" href="/about.html"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
+                            <a class="text-light" href="/contact.html"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+
+                        
+                        <div class="link-animated d-flex flex-column justify-content-start" style="background: url('https://www.esict.com/wp-content/uploads/video-gif-3.gif'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px; border-radius: 15px; height: 100%; width: 150%; box-sizing: border-box;">
+                        </div>
+                    </div>
+                    
+                    <style>
+                        @keyframes plating {
+                            0% {
+                                background-position: 0% 50%;
+                            }
+                            100% {
+                                background-position: 100% 50%;
+                            }
+                        }
+                    
+                        @keyframes metalCoating {
+                            0% {
+                                background-position: 0 0;
+                            }
+                            100% {
+                                background-position: 100% 100%;
+                            }
+                        }
+                    </style>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid text-white" style="background: #061429;">
+    <div class="container text-center">
+        <div class="row justify-content-end">
+            <div class="col-lg-8 col-md-6">
+                <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                    <p class="mb-0">&copy; <a class="text-white border-bottom" href="index.html">UST</a>. All Rights Reserved. 
+                    <br>
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    Designed by <a class="text-white border-bottom" href="https://teamwala.in/">TeamWala</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+</body>
+</html>
